@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crud</title>
+    <!-- font awesome -->
+    <link rel="stylesheet" href="css/all.min.css" />
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- css -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <section class="inputs vh-100 overflow-y-scroll bg-primary-subtle">
+      <article class="text-center pt-3">
+        <h1 class="h2 fw-bolder">CRUD SYESTEM</h1>
+        <p class="fs-3 fw-bold text-white opacity-75">
+          Admin Management System
+        </p>
+      </article>
+      <div class="container shadow my-3 py-2">
+        <input
+          id="productName"
+          type="text"
+          class="form-control my-2"
+          placeholder="product Name"
+        />
+        <input
+          id="productPrice"
+          type="number"
+          class="form-control my-2"
+          placeholder="product Price"
+        />
+        <div class="d-flex justify-content-evenly py-2">
+          <input
+            id="dateid"
+            class="w-25 p-1"
+            type="date"
+            placeholder="Date/5/2024"
+          />
+          <input id="mvkid" class="w-25 p-1" type="number" placeholder="MVK/" />
+          <input id="mvkid" class="w-25 p-1" type="number" placeholder="MVK/" />
+        </div>
+
+        <input
+          id="productCat"
+          list="list"
+          type="text"
+          class="form-control my-2"
+          placeholder="product Categry"
+        />
+        <datalist id="list">
+          <option value="LAPTOP" />
+          <option value="PHONES" />
+          <option value="GAMSE" />
+          <option value="TV" />
+        </datalist>
+        <input id="productImg" type="file" class="form-control my-2" />
+
+        <textarea
+          class="form-control my-2"
+          id="productDescription"
+          placeholder="product Description "
+        ></textarea>
+
+        <div class="button text-center my-2">
+          <button
+            data-bs-target="#addProduct"
+            data-bs-toggle="modal"
+            id="btnAddId"
+            onclick="addProduct()"
+            class="btn btn-primary w-50"
+          >
+            ADD PRODUCT
+          </button>
+          <!-- model add product -->
+          <div
+            class="modal fade"
+            id="addProduct"
+            aria-hidden="true"
+            aria-labelledby="exampleModalToggleLabel"
+            tabindex="-1"
+          >
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content rounded-4">
+                <div class="modal-header text-center bg-success">
+                  <h1
+                    class="modal-title fs-5 m-auto"
+                    id="exampleModalToggleLabel"
+                  >
+                    CRUD SYESTEM
+                  </h1>
+                </div>
+                <div class="modal-body">
+                  <i
+                    class="fa-solid fa-check text-success fs-2 p-3 rounded-circle border border-5"
+                  ></i>
+                  <h4 class="my-3 h-5 text-success">
+                    the Product has been added successfuly
+                  </h4>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            onclick="UpdateProduct ()"
+            id="btnUpdateId"
+            class="d-none btn btn-warning w-50"
+            data-bs-target="#updateProduct"
+            data-bs-toggle="modal"
+          >
+            UPDATE PRODUCT
+          </button>
+          <!-- model update product -->
+          <div
+            class="modal fade"
+            id="updateProduct"
+            aria-hidden="true"
+            aria-labelledby="exampleModalToggleLabel"
+            tabindex="-1"
+          >
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content rounded-4">
+                <div class="modal-header text-center bg-warning">
+                  <h1
+                    class="modal-title fs-5 m-auto"
+                    id="exampleModalToggleLabel"
+                  >
+                    CRUD SYESTEM
+                  </h1>
+                </div>
+                <div class="modal-body">
+                  <i
+                    class="fa-solid fa-check text-warning fs-2 p-3 rounded-circle border border-5"
+                  ></i>
+                  <h4 class="my-3 h-5 text-warning">
+                    the Product has been Update successfuly
+                  </h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center border-top mt-4 border-4">
+        <input
+          onkeyup="search (this)"
+          class="w-50 form-control my-2"
+          type="search"
+          placeholder="Search"
+        />
+      </div>
+      <section class="showData">
+        <div class="container">
+          <table class="table text-center opacity-75">
+            <thead>
+              <tr class="">
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Description</th>
+                <th>IMG</th>
+                <th>Update</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody id="DataTable"></tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
